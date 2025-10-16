@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Producto</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 600px; }
+        label { display: block; margin: 10px 0 5px; }
+        input[type="text"], input[type="number"], input[type="date"], select { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        button { background-color: #007BFF; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Agregar Nuevo Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required>
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required>
+
+        <label for="editorial">Editorial:</label>
+        <input type="text" id="editorial" name="editorial" required>
+
+        <label for="genero">Género:</label>
+        <input type="text" id="genero" name="genero" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" step="0.01" min="0" required>
+
+        <label for="stock">Stock:</label>
+        <input type="number" id="stock" name="stock" min="0" required>
+
+        <label for="fecha_publicacion">Fecha de Publicación:</label>
+        <input type="date" id="fecha_publicacion" name="fecha_publicacion" required>
+
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" name="isbn" maxlength="17" placeholder="XXX-X-XXX-XXXXX-X" required>
+
+        <label for="tipo_producto">Tipo de Producto:</label>
+        <select id="tipo_producto" name="tipo_producto">
+            <option value="fisico">Físico</option>
+            <option value="digital">Digital</option>
+        </select>
+
+        <button type="submit">Guardar Producto</button>
+    </form>
+    <a href="/">Volver al listado</a>
+</body>
+</html>
